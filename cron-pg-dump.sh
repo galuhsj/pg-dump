@@ -50,7 +50,7 @@ fi
 [ ! -e "./$FILE_NAME_LOG" ] && touch $FILE_NAME_LOG
 echo $EXEC_DATE >> $FILE_NAME_LOG
 echo "Pg dump is running" >> $FILE_NAME_LOG
-PGPASSWORD=$ && pg_dump -h $DB_HOST -p $DB_PORT -Fc -U $DB_USER $DB_NAME > $DUMP_FILE_NAME
+PGPASSWORD=$DB_PASSWORD && pg_dump -h $DB_HOST -p $DB_PORT -Fc -U $DB_USER $DB_NAME > $DUMP_FILE_NAME
 echo "Pg dump is done" >> $FILE_NAME_LOG
 FILE_SIZE=$(du -sh $DUMP_FILE_NAME)
 FILE_SIZE="${FILE_SIZE/$DUMP_FILE_NAME/}"  
